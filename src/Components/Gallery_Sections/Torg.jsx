@@ -21,7 +21,7 @@ const Torg = () => {
 
   useEffect(() => {
     // Get a reference to the storage bucket
-    const storageRef = storage.ref("/Pylons");
+    const storageRef = storage.ref("/Torg");
 
     // Fetch the list of images from the storage bucket
     storageRef.listAll().then((res) => {
@@ -35,13 +35,9 @@ const Torg = () => {
     });
   }, []);
 
-  const handleClick = () => {
-    console.log("clicked");
-  };
-
   return (
     <div className="Torg">
-      <h2>Pylons</h2>
+      <h2>Torgessen Bridge</h2>
       <ThemeProvider theme={theme}>
         <Box
           gap={2.5}
@@ -75,7 +71,6 @@ const Torg = () => {
                   srcSet={`${item}?w=248&fit=crop&auto=format&dpr=2 2x`}
                   alt={item.title}
                   loading="lazy"
-                  onClick={handleClick}
                 />
               </ImageListItem>
             </FadeInSection>

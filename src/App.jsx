@@ -4,20 +4,21 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import Header from "./Components/Header";
 import Gallery from "./Components/Gallery";
+import Hero from "./Components/Hero";
+import Footer from "./Components/Footer";
 function App() {
   return (
     <div className="App">
-      <Header />
+      <Hero />
+      {/* <Header /> */}
       {/* Navbar */}
       {/* Hero Component */}
       {/* Gallery */}
-      {/* Pylons */}
-      {/* Torg Bridge */}
-      {/* Burruss */}
+      <Gallery />
       {/* Misc Pictures */}
       {/* Footer Recap */}
+      <Footer />
       {/* Include social links */}
-      <Gallery />
     </div>
   );
 }

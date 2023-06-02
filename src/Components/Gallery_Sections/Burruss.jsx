@@ -3,6 +3,7 @@ import storage from "../../firebase";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Box } from "@mui/material";
 import FadeInSection from "../FadeInSection";
+
 import ImageListItem, {
   imageListItemClasses,
 } from "@mui/material/ImageListItem";
@@ -16,12 +17,12 @@ const theme = createTheme({
     },
   },
 });
-const Torg = () => {
+const Burruss = () => {
   const [imageUrls, setImageUrls] = useState([]);
 
   useEffect(() => {
     // Get a reference to the storage bucket
-    const storageRef = storage.ref("/Pylons");
+    const storageRef = storage.ref("/Burruss");
 
     // Fetch the list of images from the storage bucket
     storageRef.listAll().then((res) => {
@@ -35,13 +36,9 @@ const Torg = () => {
     });
   }, []);
 
-  const handleClick = () => {
-    console.log("clicked");
-  };
-
   return (
-    <div className="Torg">
-      <h2>Pylons</h2>
+    <div className="Burruss">
+      <h2>BURRUSS</h2>
       <ThemeProvider theme={theme}>
         <Box
           gap={2.5}
@@ -75,7 +72,6 @@ const Torg = () => {
                   srcSet={`${item}?w=248&fit=crop&auto=format&dpr=2 2x`}
                   alt={item.title}
                   loading="lazy"
-                  onClick={handleClick}
                 />
               </ImageListItem>
             </FadeInSection>
@@ -86,4 +82,4 @@ const Torg = () => {
   );
 };
 
-export default Torg;
+export default Burruss;
