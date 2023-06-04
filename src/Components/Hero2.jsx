@@ -14,8 +14,8 @@ const Hero2 = () => {
   return (
     <div className="image-container">
       <div className="image-text">
-        <h1>Virginia Tech Class of 2023</h1>
-        <h2>Photos by Jimmy Huynh</h2>
+        <h1 className="h1text">Virginia Tech Class of 2023</h1>
+        <h2 className="h2text">Photos by Jimmy Huynh</h2>
         {/* <Link to="/gallery"> */}
         <a
           className="sus"

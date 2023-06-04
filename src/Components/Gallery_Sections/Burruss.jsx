@@ -46,6 +46,15 @@ const Burruss = () => {
           marginBottom: "5vh",
           textAlign: "center",
           fontSize: "2.5rem",
+          "@media (max-width: 600px)": {
+            fontSize: "1.0rem", // Font size for screens with a maximum width of 600px
+          },
+          "@media (min-width: 601px) and (max-width: 1024px)": {
+            fontSize: "2.0rem", // Font size for screens with a width between 601px and 1024px
+          },
+          "@media (min-width: 1025px)": {
+            fontSize: "2.5rem", // Font size for screens with a minimum width of 1025px
+          },
           color: "grey",
         }}
       >
@@ -62,7 +71,7 @@ const Burruss = () => {
             overflowY: "scroll",
             "&::-webkit-scrollbar": { display: "none" },
             gridTemplateColumns: {
-              mobile: "repeat(2, 1fr)",
+              mobile: "repeat(1, 1fr)",
               bigMobile: "repeat(2, 1fr)",
               tablet: "repeat(2, 1fr)",
               desktop: "repeat(3, 1fr)",

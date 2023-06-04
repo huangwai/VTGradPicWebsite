@@ -126,6 +126,15 @@ export default function ResponsiveAppBar() {
                       color: "grey",
                       display: "block",
                       fontSize: "20px",
+                      "@media (max-width: 600px)": {
+                        fontSize: "15px", // Font size for screens with a maximum width of 600px
+                      },
+                      "@media (min-width: 601px) and (max-width: 1024px)": {
+                        fontSize: "20px", // Font size for screens with a width between 601px and 1024px
+                      },
+                      "@media (min-width: 1025px)": {
+                        fontSize: "25px", // Font size for screens with a minimum width of 1025px
+                      },
                       paddingInlineStart: 2,
                     }}
                   >
@@ -143,6 +152,15 @@ export default function ResponsiveAppBar() {
                       },
                       textAlign: "center",
                       my: 2,
+                      "@media (max-width: 600px)": {
+                        fontSize: "15px", // Font size for screens with a maximum width of 600px
+                      },
+                      "@media (min-width: 601px) and (max-width: 1024px)": {
+                        fontSize: "20px", // Font size for screens with a width between 601px and 1024px
+                      },
+                      "@media (min-width: 1025px)": {
+                        fontSize: "25px", // Font size for screens with a minimum width of 1025px
+                      },
                       color: "grey",
                       display: "block",
                       fontSize: "20px",
@@ -166,6 +184,15 @@ export default function ResponsiveAppBar() {
                       color: "grey",
                       display: "block",
                       fontSize: "20px",
+                      "@media (max-width: 600px)": {
+                        fontSize: "15px", // Font size for screens with a maximum width of 600px
+                      },
+                      "@media (min-width: 601px) and (max-width: 1024px)": {
+                        fontSize: "20px", // Font size for screens with a width between 601px and 1024px
+                      },
+                      "@media (min-width: 1025px)": {
+                        fontSize: "25px", // Font size for screens with a minimum width of 1025px
+                      },
                       paddingInlineStart: 2,
                     }}
                   >
@@ -190,7 +217,19 @@ export default function ResponsiveAppBar() {
                 fontWeight: 700,
                 letterSpacing: ".3rem",
                 color: "white",
-                fontSize: "40px",
+                fontSize: "25px",
+                "@media (max-width: 300px)": {
+                  fontSize: "10px", // Font size for screens with a maximum width of 600px
+                },
+                "@media (max-width: 600px)": {
+                  fontSize: "20px", // Font size for screens with a maximum width of 600px
+                },
+                "@media (min-width: 601px) and (max-width: 1024px)": {
+                  fontSize: "30px", // Font size for screens with a width between 601px and 1024px
+                },
+                "@media (min-width: 1025px)": {
+                  fontSize: "20px", // Font size for screens with a minimum width of 1025px
+                },
                 textDecoration: "none",
 
                 pl: 2,
