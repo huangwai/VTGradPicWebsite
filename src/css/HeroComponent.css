@@ -1,0 +1,66 @@
+.image-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.image-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../assets/_POG78132.png");
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+.image-text a {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  color: #fff;
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  animation: fadeIn 2s forwards;
+  text-decoration: none;
+  /* background-color: rgba(0, 0, 0, 0.9); */
+}
+.sus &:hover a {
+  opacity: 0.4;
+  color: black;
+  /* background-color: rgba(0, 0, 0, 0.9); */
+}
+.image-text h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center;
+  animation: fadeIn 2s forwards;
+}
+.image-text h2 {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  animation: fadeIn 2s forwards;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

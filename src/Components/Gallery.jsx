@@ -6,9 +6,11 @@ import Header from "./Header";
 // import Test from "./Gallery_Sections/Test";
 const Gallery = () => {
   return (
-    <div style={{ marginBottom: 100 }}>
+    <div id="#gallery-content" style={{ marginBottom: 100 }}>
+      <a href="#gallery-content"></a>
+      {/* <Header /> */}
       {/* <Test /> */}
-      <Header />
+      {/* <Header /> */}
       <Pylons />
       <Burruss />
       <Torg />

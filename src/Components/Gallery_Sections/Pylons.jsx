@@ -3,6 +3,7 @@ import storage from "../../firebase";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Box } from "@mui/material";
 import FadeInSection from "../FadeInSection";
+// import Header from "../Header";
 import ImageListItem, {
   imageListItemClasses,
 } from "@mui/material/ImageListItem";
@@ -17,6 +18,7 @@ const theme = createTheme({
   },
 });
 const Torg = () => {
+  // <Header />;
   const [imageUrls, setImageUrls] = useState([]);
 
   useEffect(() => {
@@ -41,10 +43,20 @@ const Torg = () => {
 
   return (
     <div className="Torg">
-      <h2>Pylons</h2>
+      <h2
+        style={{
+          marginTop: "20vh",
+          marginBottom: "5vh",
+          textAlign: "center",
+          fontSize: "2.5rem",
+          color: "grey",
+        }}
+      >
+        Pylons
+      </h2>
       <ThemeProvider theme={theme}>
         <Box
-          gap={2.5}
+          gap={1}
           sx={{
             mx: "auto",
             my: "auto",
@@ -62,7 +74,7 @@ const Torg = () => {
               display: "flex",
               flexDirection: "column",
             },
-            width: "85%",
+            width: "90%",
             height: "95%",
           }}
         >
@@ -70,6 +82,7 @@ const Torg = () => {
             <FadeInSection key={item}>
               <ImageListItem key={item}>
                 <img
+                  // height={"10%"}
                   key={index}
                   src={`${item}?w=248&fit=crop&auto=format`}
                   srcSet={`${item}?w=248&fit=crop&auto=format&dpr=2 2x`}

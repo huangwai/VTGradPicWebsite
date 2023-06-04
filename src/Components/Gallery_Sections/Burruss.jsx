@@ -3,7 +3,7 @@ import storage from "../../firebase";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Box } from "@mui/material";
 import FadeInSection from "../FadeInSection";
-
+// import Header from "../Header";
 import ImageListItem, {
   imageListItemClasses,
 } from "@mui/material/ImageListItem";
@@ -18,6 +18,7 @@ const theme = createTheme({
   },
 });
 const Burruss = () => {
+  // <Header />;
   const [imageUrls, setImageUrls] = useState([]);
 
   useEffect(() => {
@@ -38,10 +39,21 @@ const Burruss = () => {
 
   return (
     <div className="Burruss">
-      <h2>BURRUSS</h2>
+      {/* <Header /> */}
+      <h2
+        style={{
+          marginTop: "20vh",
+          marginBottom: "5vh",
+          textAlign: "center",
+          fontSize: "2.5rem",
+          color: "grey",
+        }}
+      >
+        BURRUSS
+      </h2>
       <ThemeProvider theme={theme}>
         <Box
-          gap={2.5}
+          gap={1}
           sx={{
             mx: "auto",
             my: "auto",

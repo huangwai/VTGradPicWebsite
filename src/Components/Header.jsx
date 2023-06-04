@@ -11,28 +11,19 @@ import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-// import ScrollToHide from "./ScrollToHide";
-// import AdbIcon from '@mui/icons-material/Adb';
-// import Tooltip from '@mui/material/Tooltip';
-// import Avatar from '@mui/material/Avatar';
-
+import ScrollToHide from "./ScrollToHide";
+import "../css/Header.css";
 const pages = ["Pylons", "Torg Bridge", "Burruss", "Misc"];
-// const settings = ['miju', 'graduation', 'captialone', 'steelwool','perrystreet','nyc','nyla'];
 
 export default function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
-    event.preventDefault();
     setAnchorElNav(event.currentTarget);
   };
 
   const handleCloseNavMenu = (event) => {
-    event.preventDefault();
-    // const section = document.getElementsByClassName("Torg");
-    // section.scrollIntoView({ behavior: "smooth" });
     setAnchorElNav(null);
-    console.log("hi");
   };
 
   const theme = createTheme();
@@ -47,23 +38,21 @@ export default function ResponsiveAppBar() {
     },
   };
 
-  //handles scroll to section of page
-  const handleClick = () => {
-    console.log("clicked");
-  };
   return (
     <ThemeProvider theme={theme}>
       {/* <ScrollToHide threshold={0}> */}
       <AppBar
         sx={{
+          // margin: "4vh",
           bgcolor: "white",
           mx: "auto",
           whiteSpace: "normal",
+          backgroundColor: "rgba(0,0,0,.5)",
         }}
         position="fixed"
       >
         <Container maxWidth="xl">
-          <Toolbar sx={{ bgcolor: "white", mx: "auto" }} disableGutters>
+          <Toolbar sx={{ bgcolor: "inherit", mx: "auto" }} disableGutters>
             <Typography
               variant="h3"
               noWrap
@@ -78,7 +67,7 @@ export default function ResponsiveAppBar() {
                 fontFamily: "monospace",
                 fontWeight: 700,
                 letterSpacing: ".3rem",
-                color: "grey",
+                color: "white",
                 fontSize: "30px",
                 textDecoration: "none",
               }}
@@ -88,7 +77,7 @@ export default function ResponsiveAppBar() {
 
             <Box
               sx={{
-                bgcolor: "white",
+                bgcolor: "inherit",
                 flexGrow: 1,
                 display: { xs: "flex", md: "none" },
               }}
@@ -99,12 +88,7 @@ export default function ResponsiveAppBar() {
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
                 onClick={handleOpenNavMenu}
-                color="black"
-                sx={
-                  {
-                    // maxWidth: ''
-                  }
-                }
+                // sx={{ color: pink }}
               >
                 <MenuIcon />
               </IconButton>
@@ -130,7 +114,7 @@ export default function ResponsiveAppBar() {
               >
                 <MenuItem key={"Pylons"} onClick={handleCloseNavMenu}>
                   <Button
-                    href={"Pylons"}
+                    href={"/pylons"}
                     key={"Pylons"}
                     onClick={handleCloseNavMenu}
                     sx={{
@@ -141,7 +125,7 @@ export default function ResponsiveAppBar() {
                       my: 2,
                       color: "grey",
                       display: "block",
-                      fontSize: "15px",
+                      fontSize: "20px",
                       paddingInlineStart: 2,
                     }}
                   >
@@ -150,7 +134,7 @@ export default function ResponsiveAppBar() {
                 </MenuItem>
                 <MenuItem key={"Burruss"} onClick={handleCloseNavMenu}>
                   <Button
-                    href={"Burruss"}
+                    href={"/burruss"}
                     key={"Burruss"}
                     onClick={handleCloseNavMenu}
                     sx={{
@@ -161,7 +145,7 @@ export default function ResponsiveAppBar() {
                       my: 2,
                       color: "grey",
                       display: "block",
-                      fontSize: "15px",
+                      fontSize: "20px",
                       paddingInlineStart: 2,
                     }}
                   >
@@ -170,7 +154,7 @@ export default function ResponsiveAppBar() {
                 </MenuItem>
                 <MenuItem key={"Torg"} onClick={handleCloseNavMenu}>
                   <Button
-                    href={"Torg"}
+                    href={"/torgbridge"}
                     key={"Torg"}
                     onClick={handleCloseNavMenu}
                     sx={{
@@ -181,7 +165,7 @@ export default function ResponsiveAppBar() {
                       my: 2,
                       color: "grey",
                       display: "block",
-                      fontSize: "15px",
+                      fontSize: "20px",
                       paddingInlineStart: 2,
                     }}
                   >
@@ -205,8 +189,8 @@ export default function ResponsiveAppBar() {
                 fontFamily: "monospace",
                 fontWeight: 700,
                 letterSpacing: ".3rem",
-                color: "grey",
-                fontSize: "20px",
+                color: "white",
+                fontSize: "40px",
                 textDecoration: "none",
 
                 pl: 2,
@@ -216,7 +200,7 @@ export default function ResponsiveAppBar() {
             </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
               <Button
-                href={"Pylons"}
+                href={"/pylons"}
                 key={"Pylons"}
                 onClick={handleCloseNavMenu}
                 sx={{
@@ -224,17 +208,16 @@ export default function ResponsiveAppBar() {
                     color: "black",
                   },
                   my: 2,
-                  color: "grey",
+                  color: "white",
                   display: "block",
-                  fontSize: "15px",
+                  fontSize: "20px",
                   paddingInlineStart: 2,
                 }}
               >
                 Pylons
               </Button>
               <Button
-                a
-                href={"Burruss"}
+                href={"/burruss"}
                 key={"Burruss"}
                 onClick={handleCloseNavMenu}
                 sx={{
@@ -242,16 +225,16 @@ export default function ResponsiveAppBar() {
                     color: "black",
                   },
                   my: 2,
-                  color: "grey",
+                  color: "white",
                   display: "block",
-                  fontSize: "15px",
+                  fontSize: "20px",
                   paddingInlineStart: 2,
                 }}
               >
-                Burruss G
+                Burruss
               </Button>
               <Button
-                href={"Torg"}
+                href={"/torgbridge"}
                 key={"Torg"}
                 onClick={handleCloseNavMenu}
                 sx={{
@@ -259,9 +242,9 @@ export default function ResponsiveAppBar() {
                     color: "black",
                   },
                   my: 2,
-                  color: "grey",
+                  color: "white",
                   display: "block",
-                  fontSize: "15px",
+                  fontSize: "20px",
                   paddingInlineStart: 2,
                 }}
               >
@@ -271,10 +254,13 @@ export default function ResponsiveAppBar() {
             <Button
               href="https://www.instagram.com/pixbyhuynh/"
               sx={{
+                ":hover": {
+                  color: "black",
+                },
                 my: 2,
-                color: "black",
+                color: "white",
                 display: "block",
-                fontSize: "15px",
+                fontSize: "30px",
                 paddingInlineStart: 2,
               }}
             >
