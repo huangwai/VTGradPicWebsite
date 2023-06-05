@@ -9,7 +9,8 @@ import Pylons from "./Components/Gallery_Sections/Pylons";
 // import Hero2 from "./Components/Hero2";
 import Home from "./Components/Home";
 import { Divider } from "@mui/material";
-import ScrollToTopButton from "./Components/ButtonScroll";
+// import ScrollToTopButton from "./Components/ButtonScroll";
+import Error from "./Components/Error";
 function App() {
   return (
     <div className="App">
@@ -29,6 +30,7 @@ function App() {
           {/* Route for Torg Bridge */}
           <Route exact path="/torgbridge" element={<Torg />} />
           <Route exact path="/gallery" element={<Gallery />} />
+          <Route path="*" element={<Error />} />
         </Routes>
         {/* <Gallery /> */}
         {/* Footer Recap */}

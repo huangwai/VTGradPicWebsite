@@ -42,6 +42,7 @@ const Torg = () => {
   const handleClick = () => {
     console.log("clicked");
   };
+  console.log("SetImageUrls:", setImageUrls);
 
   return (
     <div className="gallery-text">
