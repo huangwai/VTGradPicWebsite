@@ -1,10 +1,7 @@
 import React from "react";
-import imageSrc from "../assets/_POG7813.png";
 import "../css/HeroComponent.css";
 import "@fontsource/roboto/300.css";
-import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
-import { Button } from "@mui/material";
-import { Link } from "@mui/material";
+
 const Hero2 = () => {
   const scrollToSection = () => {
     console.log("clicked Explore Gallery Button");
@@ -29,6 +26,7 @@ const Hero2 = () => {
         >
           Explore Gallery
         </a>
+
         {/* </Link> */}
         {/* <ArrowDownwardIcon /> */}
       </div>

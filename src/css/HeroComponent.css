@@ -31,6 +31,9 @@
   /* background-color: rgba(0, 0, 0, 0.9); */
 }
 /* &:hover .image-text a {
+  color: red;
+} */
+/* &:hover .image-text a {
   opacity: 0.9;
   text-decoration: none;
   font-size: 40px;

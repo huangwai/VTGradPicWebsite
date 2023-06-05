@@ -3,6 +3,8 @@ import storage from "../../firebase";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Box } from "@mui/material";
 import FadeInSection from "../FadeInSection";
+import "../../css/Gallery.css";
+
 // import Header from "../Header";
 import ImageListItem, {
   imageListItemClasses,
@@ -42,7 +44,7 @@ const Torg = () => {
   };
 
   return (
-    <div className="Torg">
+    <div className="gallery-text">
       <h2
         style={{
           marginTop: "20vh",

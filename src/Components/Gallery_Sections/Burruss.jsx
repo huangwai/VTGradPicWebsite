@@ -3,6 +3,7 @@ import storage from "../../firebase";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Box } from "@mui/material";
 import FadeInSection from "../FadeInSection";
+import "../../css/Gallery.css";
 // import Header from "../Header";
 import ImageListItem, {
   imageListItemClasses,
@@ -38,25 +39,25 @@ const Burruss = () => {
   }, []);
 
   return (
-    <div className="Burruss">
+    <div className="gallery-text">
       {/* <Header /> */}
       <h2
-        style={{
-          marginTop: "20vh",
-          marginBottom: "5vh",
-          textAlign: "center",
-          fontSize: "2.5rem",
-          "@media (max-width: 600px)": {
-            fontSize: "1.0rem", // Font size for screens with a maximum width of 600px
-          },
-          "@media (min-width: 601px) and (max-width: 1024px)": {
-            fontSize: "2.0rem", // Font size for screens with a width between 601px and 1024px
-          },
-          "@media (min-width: 1025px)": {
-            fontSize: "2.5rem", // Font size for screens with a minimum width of 1025px
-          },
-          color: "grey",
-        }}
+      // style={{
+      //   marginTop: "20vh",
+      //   marginBottom: "5vh",
+      //   textAlign: "center",
+      //   fontSize: "2.5rem",
+      //   "@media (maxWidth: 600px)": {
+      //     fontSize: "1.0rem", // Font size for screens with a maximum width of 600px
+      //   },
+      //   "@media (minWidth: 601px) and (maxidth: 1024px)": {
+      //     fontSize: "2.0rem", // Font size for screens with a width between 601px and 1024px
+      //   },
+      //   "@media (minWidth: 1025px)": {
+      //     fontSize: "2.5rem", // Font size for screens with a minimum width of 1025px
+      //   },
+      //   color: "grey",
+      // }}
       >
         BURRUSS
       </h2>

@@ -4,6 +4,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Box } from "@mui/material";
 import FadeInSection from "../FadeInSection";
 import "../../css/Gallery.css";
+// import Random from "../Random";
 import ImageListItem, {
   imageListItemClasses,
 } from "@mui/material/ImageListItem";
@@ -40,15 +41,16 @@ const Torg = () => {
     console.log("clicked");
   };
   return (
-    <div className="Torg">
+    <div className="gallery-text">
+      {/* <Random /> */}
       <h2
-        style={{
-          marginTop: "20vh",
-          marginBottom: "5vh",
-          textAlign: "center",
-          fontSize: "2.5rem",
-          color: "grey",
-        }}
+      // style={{
+      //   marginTop: "20vh",
+      //   marginBottom: "5vh",
+      //   textAlign: "center",
+      //   fontSize: "2.5rem",
+      //   color: "grey",
+      // }}
       >
         Torgersen Bridge
       </h2>

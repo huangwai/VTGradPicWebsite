@@ -1,3 +1,32 @@
-:hover img {
-  cursor: isClicked;
+.gallery-text {
+  position: relative;
+}
+.gallery-text h2 {
+  margin-top: 20vh;
+  margin-bottom: 5vh;
+  text-align: center;
+  font-size: 30px;
+  color: grey;
+  animation: fadeIn 2s forwards;
+}
+
+/* Style for screens with a maximum width of 600px */
+@media (max-width: 600px) {
+  .gallery-text h2 {
+    font-size: 20px;
+  }
+}
+
+/* Style for screens with a minimum width of 601px and a maximum width of 1024px */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .gallery-text h2 {
+    font-size: 35px;
+  }
+}
+
+/* Style for screens with a minimum width of 1025px */
+@media (min-width: 1025px) {
+  .gallery-text h2 {
+    font-size: 45px;
+  }
 }
