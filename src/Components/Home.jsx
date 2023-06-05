@@ -1,5 +1,6 @@
 import React from "react";
 import Hero2 from "./Hero2";
+import "../App.css";
 // import Gallery from "./Gallery";
 // import About from "./About";
 // import Header from "../Components/Header";

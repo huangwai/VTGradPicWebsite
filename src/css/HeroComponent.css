@@ -27,7 +27,7 @@
   text-align: center;
   animation: fadeIn 2s forwards;
   text-decoration: none;
-  transition: "font-size 1s ease";
+  /* transition: "font-size 1s ease"; */
   /* background-color: rgba(0, 0, 0, 0.9); */
 }
 /* &:hover .image-text a {

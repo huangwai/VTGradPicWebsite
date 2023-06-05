@@ -11,3 +11,10 @@
 .read-the-docs {
   color: #888;
 }
+a:hover {
+  color: white;
+}
+
+.hero-content {
+  background-color: rgba(0, 0, 0, 0.4);
+}
