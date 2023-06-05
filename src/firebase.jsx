@@ -1,7 +1,7 @@
 import "firebase/compat/storage";
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
-import "firebase/analytics";
+// import "firebase/analytics";
 
 // const dotenv = require("dotenv"); //hides all sensitive data
 // dotenv.config({ path: "../.env" });
@@ -21,7 +21,7 @@ const firebaseConfig = {
   appId: process.env.REACT_APP_APP_ID,
   measurementId: process.env.REACT_APP_MEASUREMENT_ID,
 };
-firebase.analytics();
+// firebase.analytics();
 firebase.initializeApp(firebaseConfig);
 const storage = firebase.storage();
 export { storage, firebase as default };
