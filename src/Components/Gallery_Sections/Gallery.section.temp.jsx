@@ -7,6 +7,8 @@ import "../../css/Gallery.css";
 import DownloadIcon from "@mui/icons-material/Download";
 import Modal from "react-modal";
 import CloseIcon from "@mui/icons-material/Close";
+import { saveAs } from "file-saver";
+
 // import Random from "../Random";
 import ImageListItem, {
   imageListItemClasses,
@@ -50,11 +52,14 @@ const Gallery_template = (props) => {
   }, []);
 
   //handles when a person clicks on an image
-  const handleDownload = (imageUrl, imageName) => {
-    const link = document.createElement("a");
-    link.href = imageUrl;
-    link.download = imageName;
-    link.click();
+  const handleDownload = (image) => {
+    console.log(`${image}?w=248&fit=crop&auto=format`);
+    console.log("12url : name ", image, " - ", image.alt);
+    // const link = document.createElement("a");
+    // link.href = image.url;
+    // link.download = "cool";
+    // link.click();
+    // saveAs(`${image}?w=248&fit=crop&auto=format`, "pixbyhuynh");
     // window.open(imageUrl, "_self");
   };
   const [selectedImage, setSelectedImage] = useState(null);
@@ -133,7 +138,40 @@ const Gallery_template = (props) => {
                   onRequestClose={closeModal}
                   style={modalStyles}
                 >
-                  <CloseIcon
+                  {selectedImage && (
+                    <>
+                      <CloseIcon
+                        // sx={{ fontSize: 32 }}
+                        onClick={closeModal}
+                        onMouseEnter={() => {
+                          document.body.style.cursor = "pointer";
+                        }}
+                        onMouseLeave={() => {
+                          document.body.style.cursor = "default";
+                        }}
+                      />
+                      <img
+                        style={{
+                          maxWidth: "100%",
+                          maxHeight: "100%",
+                          width: "auto",
+                          height: "auto",
+                        }}
+                        src={selectedImage}
+                        alt="Selected Image"
+                      />
+                      <DownloadIcon
+                        onClick={() => handleDownload(item)}
+                        onMouseEnter={() => {
+                          document.body.style.cursor = "pointer";
+                        }}
+                        onMouseLeave={() => {
+                          document.body.style.cursor = "default";
+                        }}
+                      />
+                    </>
+                  )}
+                  {/* <CloseIcon
                     // sx={{ fontSize: 32 }}
                     onClick={closeModal}
                     onMouseEnter={() => {
@@ -142,8 +180,8 @@ const Gallery_template = (props) => {
                     onMouseLeave={() => {
                       document.body.style.cursor = "default";
                     }}
-                  />
-                  <img
+                  /> */}
+                  {/* <img
                     style={{
                       maxWidth: "100%",
                       maxHeight: "100%",
@@ -152,8 +190,8 @@ const Gallery_template = (props) => {
                     }}
                     src={selectedImage}
                     alt="Selected Image"
-                  />
-                  <DownloadIcon
+                  /> */}
+                  {/* <DownloadIcon
                     onClick={() =>
                       handleDownload(
                         `${item}?w=248&fit=crop&auto=format`,
@@ -166,7 +204,7 @@ const Gallery_template = (props) => {
                     onMouseLeave={() => {
                       document.body.style.cursor = "default";
                     }}
-                  />
+                  /> */}
                 </Modal>
               </ImageListItem>
             </FadeInSection>
