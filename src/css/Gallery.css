@@ -10,10 +10,25 @@
   animation: fadeIn 2s forwards;
 }
 
+.modal-content {
+  margin-top: 20vh;
+}
+
+.Box {
+  width: 90%;
+}
 /* Style for screens with a maximum width of 600px */
 @media (max-width: 600px) {
   .gallery-text h2 {
     font-size: 20px;
+  }
+  .Box {
+    /* gap:{0}; */
+    width: 100%;
+    /* background-color: blue; */
+  }
+  .gallery-text img {
+    width: 100%;
   }
 }
 

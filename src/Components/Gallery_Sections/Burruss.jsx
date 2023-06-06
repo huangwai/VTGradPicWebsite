@@ -4,6 +4,10 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Box } from "@mui/material";
 import FadeInSection from "../FadeInSection";
 import "../../css/Gallery.css";
+import DownloadIcon from "@mui/icons-material/Download";
+import Modal from "react-modal";
+import CloseIcon from "@mui/icons-material/Close";
+
 // import Header from "../Header";
 import ImageListItem, {
   imageListItemClasses,
@@ -19,7 +23,6 @@ const theme = createTheme({
   },
 });
 const Burruss = () => {
-  // <Header />;
   const [imageUrls, setImageUrls] = useState([]);
 
   useEffect(() => {
@@ -38,31 +41,39 @@ const Burruss = () => {
     });
   }, []);
 
+  //handles when a person clicks on an image
+  const handleDownload = (event, imageUrl) => {
+    event.preventDefault();
+    const windowFeatures = "width=800,height=600,resizable,scrollbars=yes";
+    window.open(imageUrl, "_blank", windowFeatures);
+    // window.open(imageUrl, "_self");
+  };
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const openModal = (imageUrl) => {
+    setSelectedImage(imageUrl);
+  };
+
+  const closeModal = () => {
+    setSelectedImage(null);
+  };
+  const modalStyles = {
+    content: {
+      width: "70%", // Adjust the width as needed
+      height: "80%", // Adjust the height as needed
+      margin: "auto",
+      marginTop: "10vh",
+    },
+  };
+  useEffect(() => {
+    Modal.setAppElement("#root"); // Set the app element for the modal
+  }, []);
   return (
     <div className="gallery-text">
-      {/* <Header /> */}
-      <h2
-      // style={{
-      //   marginTop: "20vh",
-      //   marginBottom: "5vh",
-      //   textAlign: "center",
-      //   fontSize: "2.5rem",
-      //   "@media (maxWidth: 600px)": {
-      //     fontSize: "1.0rem", // Font size for screens with a maximum width of 600px
-      //   },
-      //   "@media (minWidth: 601px) and (maxidth: 1024px)": {
-      //     fontSize: "2.0rem", // Font size for screens with a width between 601px and 1024px
-      //   },
-      //   "@media (minWidth: 1025px)": {
-      //     fontSize: "2.5rem", // Font size for screens with a minimum width of 1025px
-      //   },
-      //   color: "grey",
-      // }}
-      >
-        BURRUSS
-      </h2>
+      <h2>Burruss</h2>
       <ThemeProvider theme={theme}>
         <Box
+          className="Box"
           gap={1}
           sx={{
             mx: "auto",
@@ -72,7 +83,7 @@ const Burruss = () => {
             overflowY: "scroll",
             "&::-webkit-scrollbar": { display: "none" },
             gridTemplateColumns: {
-              mobile: "repeat(1, 1fr)",
+              mobile: "repeat(2, 1fr)",
               bigMobile: "repeat(2, 1fr)",
               tablet: "repeat(2, 1fr)",
               desktop: "repeat(3, 1fr)",
@@ -81,7 +92,7 @@ const Burruss = () => {
               display: "flex",
               flexDirection: "column",
             },
-            width: "85%",
+            // width: "85%",
             height: "95%",
           }}
         >
@@ -94,7 +105,46 @@ const Burruss = () => {
                   srcSet={`${item}?w=248&fit=crop&auto=format&dpr=2 2x`}
                   alt={item.title}
                   loading="lazy"
+                  onClick={() =>
+                    openModal(`${item}?w=248&fit=crop&auto=format`)
+                  }
+                  onMouseEnter={() => {
+                    document.body.style.cursor = "pointer";
+                  }}
+                  onMouseLeave={() => {
+                    document.body.style.cursor = "default";
+                  }}
                 />
+
+                <Modal
+                  isOpen={!!selectedImage}
+                  onRequestClose={closeModal}
+                  style={modalStyles}
+                >
+                  <CloseIcon
+                    onClick={closeModal}
+                    onMouseEnter={() => {
+                      document.body.style.cursor = "pointer";
+                    }}
+                    onMouseLeave={() => {
+                      document.body.style.cursor = "default";
+                    }}
+                  />
+                  <img
+                    style={{ width: "100%" }}
+                    src={selectedImage}
+                    alt="Selected Image"
+                  />
+                  <DownloadIcon
+                    // onClick= {hand}
+                    onMouseEnter={() => {
+                      document.body.style.cursor = "pointer";
+                    }}
+                    onMouseLeave={() => {
+                      document.body.style.cursor = "default";
+                    }}
+                  />
+                </Modal>
               </ImageListItem>
             </FadeInSection>
           ))}
