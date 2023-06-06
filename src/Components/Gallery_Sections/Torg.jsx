@@ -11,6 +11,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import ImageListItem, {
   imageListItemClasses,
 } from "@mui/material/ImageListItem";
+import Gallery_template from "./Gallery.section.temp";
 const theme = createTheme({
   breakpoints: {
     values: {
@@ -22,54 +23,59 @@ const theme = createTheme({
   },
 });
 const Torg = () => {
-  const [imageUrls, setImageUrls] = useState([]);
+  // const [imageUrls, setImageUrls] = useState([]);
 
-  useEffect(() => {
-    // Get a reference to the storage bucket
-    const storageRef = storage.ref("/Torg");
+  // useEffect(() => {
+  //   // Get a reference to the storage bucket
+  //   const storageRef = storage.ref("/Torg");
 
-    // Fetch the list of images from the storage bucket
-    storageRef.listAll().then((res) => {
-      const promises = res.items.map((item) =>
-        item.getDownloadURL().catch((error) => console.log(error))
-      );
+  //   // Fetch the list of images from the storage bucket
+  //   storageRef.listAll().then((res) => {
+  //     const promises = res.items.map((item) =>
+  //       item.getDownloadURL().catch((error) => console.log(error))
+  //     );
 
-      Promise.all(promises).then((urls) => {
-        setImageUrls(urls);
-      });
-    });
-  }, []);
+  //     Promise.all(promises).then((urls) => {
+  //       setImageUrls(urls);
+  //     });
+  //   });
+  // }, []);
 
-  //handles when a person clicks on an image
-  const handleDownload = (event, imageUrl) => {
-    event.preventDefault();
-    const windowFeatures = "width=800,height=600,resizable,scrollbars=yes";
-    window.open(imageUrl, "_blank", windowFeatures);
-    // window.open(imageUrl, "_self");
-  };
-  const [selectedImage, setSelectedImage] = useState(null);
+  // //handles when a person clicks on an image
+  // const handleDownload = (imageUrl, imageName) => {
+  //   const link = document.createElement("a");
+  //   link.href = imageUrl;
+  //   link.download = imageName;
+  //   link.click();
+  //   // window.open(imageUrl, "_self");
+  // };
+  // const [selectedImage, setSelectedImage] = useState(null);
 
-  const openModal = (imageUrl) => {
-    setSelectedImage(imageUrl);
-  };
+  // const openModal = (imageUrl) => {
+  //   setSelectedImage(imageUrl);
+  // };
 
-  const closeModal = () => {
-    setSelectedImage(null);
-  };
-  const modalStyles = {
-    content: {
-      width: "70%", // Adjust the width as needed
-      height: "80%", // Adjust the height as needed
-      margin: "auto",
-      marginTop: "10vh",
-    },
-  };
-  useEffect(() => {
-    Modal.setAppElement("#root"); // Set the app element for the modal
-  }, []);
+  // const closeModal = () => {
+  //   setSelectedImage(null);
+  // };
+  // const modalStyles = {
+  //   content: {
+  //     maxWidth: "100%",
+  //     maxHeight: "100%",
+  //     width: "auto",
+  //     height: "auto",
+  //     margin: "auto",
+  //     marginTop: "10vh",
+  //     textAlign: "center",
+  //   },
+  // };
+  // useEffect(() => {
+  //   Modal.setAppElement("#root"); // Set the app element for the modal
+  // }, []);
   return (
     <div className="gallery-text">
-      <h2>Torgersen Bridge</h2>
+      <Gallery_template name="Torg" />
+      {/* <h2>Torgersen Bridge</h2>
       <ThemeProvider theme={theme}>
         <Box
           className="Box"
@@ -92,7 +98,7 @@ const Torg = () => {
               flexDirection: "column",
             },
             // width: "85%",
-            height: "95%",
+            height: "90%",
           }}
         >
           {imageUrls.map((item, index) => (
@@ -121,6 +127,7 @@ const Torg = () => {
                   style={modalStyles}
                 >
                   <CloseIcon
+                    // sx={{ fontSize: 32 }}
                     onClick={closeModal}
                     onMouseEnter={() => {
                       document.body.style.cursor = "pointer";
@@ -130,12 +137,22 @@ const Torg = () => {
                     }}
                   />
                   <img
-                    style={{ width: "100%" }}
+                    style={{
+                      maxWidth: "100%",
+                      maxHeight: "100%",
+                      width: "auto",
+                      height: "auto",
+                    }}
                     src={selectedImage}
                     alt="Selected Image"
                   />
                   <DownloadIcon
-                    // onClick= {hand}
+                    onClick={() =>
+                      handleDownload(
+                        `${item}?w=248&fit=crop&auto=format`,
+                        image.title
+                      )
+                    }
                     onMouseEnter={() => {
                       document.body.style.cursor = "pointer";
                     }}
@@ -148,7 +165,7 @@ const Torg = () => {
             </FadeInSection>
           ))}
         </Box>
-      </ThemeProvider>
+      </ThemeProvider> */}
     </div>
   );
 };

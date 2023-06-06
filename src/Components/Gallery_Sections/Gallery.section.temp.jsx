@@ -7,12 +7,10 @@ import "../../css/Gallery.css";
 import DownloadIcon from "@mui/icons-material/Download";
 import Modal from "react-modal";
 import CloseIcon from "@mui/icons-material/Close";
-
-// import Header from "../Header";
+// import Random from "../Random";
 import ImageListItem, {
   imageListItemClasses,
 } from "@mui/material/ImageListItem";
-import Gallery_template from "./Gallery.section.temp";
 const theme = createTheme({
   breakpoints: {
     values: {
@@ -23,56 +21,68 @@ const theme = createTheme({
     },
   },
 });
-const Burruss = () => {
-  // const [imageUrls, setImageUrls] = useState([]);
+const Gallery_template = (props) => {
+  // const [name] = props;
+  const [imageUrls, setImageUrls] = useState([]);
 
-  // useEffect(() => {
-  //   // Get a reference to the storage bucket
-  //   const storageRef = storage.ref("/Burruss");
+  let title;
+  if (props.name === "Torg") {
+    title = "Torgersen Bridge";
+  } else if (props.name === "Pylons") {
+    title = "Pylons";
+  } else {
+    title = "Burruss";
+  }
+  useEffect(() => {
+    // Get a reference to the storage bucket
+    const storageRef = storage.ref(`/${props.name}`);
 
-  //   // Fetch the list of images from the storage bucket
-  //   storageRef.listAll().then((res) => {
-  //     const promises = res.items.map((item) =>
-  //       item.getDownloadURL().catch((error) => console.log(error))
-  //     );
+    // Fetch the list of images from the storage bucket
+    storageRef.listAll().then((res) => {
+      const promises = res.items.map((item) =>
+        item.getDownloadURL().catch((error) => console.log(error))
+      );
 
-  //     Promise.all(promises).then((urls) => {
-  //       setImageUrls(urls);
-  //     });
-  //   });
-  // }, []);
+      Promise.all(promises).then((urls) => {
+        setImageUrls(urls);
+      });
+    });
+  }, []);
 
-  // //handles when a person clicks on an image
-  // const handleDownload = (event, imageUrl) => {
-  //   event.preventDefault();
-  //   const windowFeatures = "width=800,height=600,resizable,scrollbars=yes";
-  //   window.open(imageUrl, "_blank", windowFeatures);
-  //   // window.open(imageUrl, "_self");
-  // };
-  // const [selectedImage, setSelectedImage] = useState(null);
+  //handles when a person clicks on an image
+  const handleDownload = (imageUrl, imageName) => {
+    const link = document.createElement("a");
+    link.href = imageUrl;
+    link.download = imageName;
+    link.click();
+    // window.open(imageUrl, "_self");
+  };
+  const [selectedImage, setSelectedImage] = useState(null);
 
-  // const openModal = (imageUrl) => {
-  //   setSelectedImage(imageUrl);
-  // };
+  const openModal = (imageUrl) => {
+    setSelectedImage(imageUrl);
+  };
 
-  // const closeModal = () => {
-  //   setSelectedImage(null);
-  // };
-  // const modalStyles = {
-  //   content: {
-  //     width: "70%", // Adjust the width as needed
-  //     height: "80%", // Adjust the height as needed
-  //     margin: "auto",
-  //     marginTop: "10vh",
-  //   },
-  // };
-  // useEffect(() => {
-  //   Modal.setAppElement("#root"); // Set the app element for the modal
-  // }, []);
+  const closeModal = () => {
+    setSelectedImage(null);
+  };
+  const modalStyles = {
+    content: {
+      maxWidth: "100%",
+      maxHeight: "100%",
+      width: "auto",
+      height: "auto",
+      margin: "auto",
+      marginTop: "10vh",
+      textAlign: "center",
+    },
+  };
+  useEffect(() => {
+    Modal.setAppElement("#root"); // Set the app element for the modal
+  }, []);
   return (
     <div className="gallery-text">
-      <Gallery_template name="Burruss" />
-      {/* <h2>Burruss</h2>
+      <h2>{title}</h2>
       <ThemeProvider theme={theme}>
         <Box
           className="Box"
@@ -95,7 +105,7 @@ const Burruss = () => {
               flexDirection: "column",
             },
             // width: "85%",
-            height: "95%",
+            height: "90%",
           }}
         >
           {imageUrls.map((item, index) => (
@@ -124,6 +134,7 @@ const Burruss = () => {
                   style={modalStyles}
                 >
                   <CloseIcon
+                    // sx={{ fontSize: 32 }}
                     onClick={closeModal}
                     onMouseEnter={() => {
                       document.body.style.cursor = "pointer";
@@ -133,12 +144,22 @@ const Burruss = () => {
                     }}
                   />
                   <img
-                    style={{ width: "100%" }}
+                    style={{
+                      maxWidth: "100%",
+                      maxHeight: "100%",
+                      width: "auto",
+                      height: "auto",
+                    }}
                     src={selectedImage}
                     alt="Selected Image"
                   />
                   <DownloadIcon
-                    // onClick= {hand}
+                    onClick={() =>
+                      handleDownload(
+                        `${item}?w=248&fit=crop&auto=format`,
+                        image.title
+                      )
+                    }
                     onMouseEnter={() => {
                       document.body.style.cursor = "pointer";
                     }}
@@ -151,9 +172,9 @@ const Burruss = () => {
             </FadeInSection>
           ))}
         </Box>
-      </ThemeProvider> */}
+      </ThemeProvider>
     </div>
   );
 };
 
-export default Burruss;
+export default Gallery_template;
